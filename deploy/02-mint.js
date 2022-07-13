@@ -1,11 +1,9 @@
-const { network, ethers } = require("hardhat");
-// const { developmentChains } = require("../helper-hardhat-config");
+const { ethers } = require("hardhat");
 
 module.exports = async ({ getNamedAccounts }) => {
     // deployer will be used for minting
     const { deployer } = await getNamedAccounts();
 
-    // Basic NFT
     const pkNft = await ethers.getContract("PkNft", deployer);
     const pkMintTx = await pkNft.mintNft();
     await pkMintTx.wait(1);

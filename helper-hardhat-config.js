@@ -23,6 +23,7 @@ const networkConfig = {
         // I don't think subscriptionId will be needed for this
         // subscriptionId: "8341",
     },
+    1: {},
 };
 
 const DECIMALS = "18";
