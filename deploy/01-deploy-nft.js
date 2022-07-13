@@ -43,4 +43,4 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     }
 };
 
-// module.exports.tags = ["all", "dynamicvsg", "main"]
+module.exports.tags = ["all", "main"];
