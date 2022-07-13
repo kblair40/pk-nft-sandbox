@@ -25,19 +25,22 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     });
 
     // args = [ethUsdPriceFeedAddress, lowSVG, highSVG]
-
+    args = [svg];
     const pkNft = await deploy("PkNft", {
         from: deployer,
-        // args: args,
+        args: args,
         log: true,
         waitConfirmations: network.config.blockConfirmations || 1,
     });
 
+    console.log("DEPLOY SUCCESS:", pkNft);
+    console.log("Deployed to...", pkNft.address);
+
     // Verify the deployment
-    // if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
-    //     log("Verifying...")
-    //     await verify(dynamicSvgNft.address, args)
-    // }
+    if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
+        log("Verifying...");
+        await verify(pkNft.address, args);
+    }
 };
 
 // module.exports.tags = ["all", "dynamicvsg", "main"]
