@@ -5,7 +5,7 @@ pragma solidity ^0.8.7;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "base64-sol/base64.sol";
 
-contract PkNft is ERC721 {
+contract PkSvgNft is ERC721 {
     uint256 private s_tokenCounter;
     string internal s_tokenUri;
     string private constant base64EncodedSvgPrefix = "data:image/svg+xml;base64,";
