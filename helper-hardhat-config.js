@@ -20,8 +20,6 @@ const networkConfig = {
 
         callbackGasLimit: "500000", // 500,000 gas
         mintFee: "10000000000000000", // 0.01 ETH
-        // I don't think subscriptionId will be needed for this
-        // subscriptionId: "8341",
     },
     1: {},
 };
