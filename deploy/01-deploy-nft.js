@@ -24,15 +24,6 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         console.log("TOKEN URIS:", tokenUris);
     }
 
-    // let ethUsdPriceFeedAddress
-
-    // if (developmentChains.includes(network.name)) {
-    //     const EthUsdAggregator = await ethers.getContract("MockV3Aggregator")
-    //     ethUsdPriceFeedAddress = EthUsdAggregator.address
-    // } else {
-    //     ethUsdPriceFeedAddress = networkConfig[chainId].ethUsdPriceFeed
-    // }
-
     log("---------------------------------------");
 
     const svg = await fs.readFileSync("./images/pklogo.svg", {
