@@ -14,7 +14,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     });
 
     args = [svg];
-    const pkSvgNft = await deploy("pkSvgNft", {
+    const pkSvgNft = await deploy("PkSvgNft", {
         from: deployer,
         args: args,
         log: true,
