@@ -10,7 +10,6 @@ contract PkPngNft is ERC721 {
 
     constructor() ERC721("PK PNG NFT", "PKPN") {
         s_tokenCounter = 0;
-        // s_tokenUri = tokenUri;
     }
 
     function mintNft() public returns (uint256) {

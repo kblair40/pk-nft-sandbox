@@ -10,7 +10,7 @@ contract PkSvgNft is ERC721 {
     string internal s_tokenUri;
     string private constant base64EncodedSvgPrefix = "data:image/svg+xml;base64,";
 
-    constructor(string memory imageUri) ERC721("PK Blue Logo SVG", "PKBS") {
+    constructor(string memory imageUri) ERC721("PK SVG", "PKS") {
         s_tokenCounter = 0;
         s_tokenUri = svgToImageURI(imageUri);
     }
@@ -47,8 +47,8 @@ contract PkSvgNft is ERC721 {
                         bytes(
                             abi.encodePacked(
                                 '{"name": "',
-                                // 'PK SVG Logo Red'
-                                name(),
+                                'PK Red'
+                                // name(),
                                 '", "description":"Testing SVG NFT Contracts", ',
                                 '"attributes": [{"trait_type": "bgColorHex", "value": "d12f50"}], "image":"',
                                 // s_tokenUri was already prefixed with base64EncodedSvgPrefix in constructor
