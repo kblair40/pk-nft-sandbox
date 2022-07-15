@@ -8,25 +8,11 @@ import "base64-sol/base64.sol";
 contract PkMultipleSvgNft is ERC721 {
     uint256 private s_tokenCounter;
     string[4] internal s_tokenUris;
-    // string internal s_blueTokenUri;
-    // string internal s_greenTokenUri;
-    // string internal s_redTokenUri;
-    // string internal s_yellowTokenUri;
     string private constant base64EncodedSvgPrefix = "data:image/svg+xml;base64,";
 
-    constructor(
-        // string memory blueUri,
-        // string memory greenUri,
-        // string memory redUri,
-        // string memory yellowUri
-        string[4] memory tokenUris
-    ) ERC721("PK MULTISVG", "PKS") {
+    constructor(string[4] memory tokenUris) ERC721("PK MULTI-SVG", "PKMS") {
         s_tokenCounter = 0;
         s_tokenUris = tokenUris;
-        // s_blueTokenUri = svgToImageURI(blueUri);
-        // s_greenTokenUri = svgToImageURI(greenUri);
-        // s_redTokenUri = svgToImageURI(redUri);
-        // s_yellowTokenUri = svgToImageURI(yellowUri);
     }
 
     function svgToImageURI(string memory svg) public pure returns (string memory) {
@@ -36,7 +22,7 @@ contract PkMultipleSvgNft is ERC721 {
         return string(abi.encodePacked(base64EncodedSvgPrefix, svgBase64Encoded));
     }
 
-    // Must override this function when minting
+    // Must override this function when minting svg
     function _baseURI() internal pure override returns (string memory) {
         // data:application/json;base64, is prefix for base64 json
         return "data:application/json;base64,";
@@ -49,11 +35,6 @@ contract PkMultipleSvgNft is ERC721 {
         }
 
         return s_tokenCounter;
-
-        // _safeMint(msg.sender, s_tokenCounter);
-        // s_tokenCounter = s_tokenCounter + 1;
-
-        // return s_tokenCounter;
     }
 
     function tokenURI(uint256 tokenIdx) public view override returns (string memory) {
@@ -72,10 +53,7 @@ contract PkMultipleSvgNft is ERC721 {
                             abi.encodePacked(
                                 '{"name": "',
                                 names[tokenIdx],
-                                // 'PK Red'
-                                // name(),
                                 '", "description":"Testing SVG NFT Contracts", ',
-                                // '"attributes": [{"trait_type": "bgColorHex", "value": "d12f50"}], "image":"',
                                 '"attributes": [{"trait_type": "bgColorHex", "value": "',
                                 hexes[tokenIdx],
                                 ' "}], "image":"',
