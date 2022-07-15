@@ -43,10 +43,17 @@ contract PkMultipleSvgNft is ERC721 {
     }
 
     function mintNft() public returns (uint256) {
-        _safeMint(msg.sender, s_tokenCounter);
-        s_tokenCounter = s_tokenCounter + 1;
+        for (uint256 i = 0; i < 4; i++) {
+            _safeMint(msg.sender, i);
+            s_tokenCounter = s_tokenCounter + 1;
+        }
 
         return s_tokenCounter;
+
+        // _safeMint(msg.sender, s_tokenCounter);
+        // s_tokenCounter = s_tokenCounter + 1;
+
+        // return s_tokenCounter;
     }
 
     function tokenURI(uint256 tokenIdx) public view override returns (string memory) {
@@ -73,7 +80,7 @@ contract PkMultipleSvgNft is ERC721 {
                                 hexes[tokenIdx],
                                 ' "}], "image":"',
                                 // s_tokenUri was already prefixed with base64EncodedSvgPrefix in constructor
-                                s_tokenUris[tokenIdx],
+                                svgToImageURI(s_tokenUris[tokenIdx]),
                                 '"}'
                             )
                         )
