@@ -3,9 +3,11 @@ pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract BasicNft is ERC721 {
+contract BasicSvgNft is ERC721 {
     string public constant TOKEN_URI = "ipfs://QmVkgquz67fBHG2i24HTAjojqFmNYs3BTyqDmSbzMSXx8m";
     uint256 private s_tokenCounter;
+
+    event PkSvgMinted(uint256 indexed tokenId);
 
     constructor() ERC721("Dogie", "DOG") {
         s_tokenCounter = 0;
@@ -13,6 +15,7 @@ contract BasicNft is ERC721 {
 
     function mintNft() public {
         _safeMint(msg.sender, s_tokenCounter);
+        emit PkSvgMinted(s_tokenCounter);
         s_tokenCounter = s_tokenCounter + 1;
     }
 
