@@ -6,7 +6,6 @@ require("dotenv").config();
 require("solidity-coverage");
 require("hardhat-deploy");
 
-const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || "";
 const RINKEBY_RPC_URL =
     process.env.RINKEBY_RPC_URL || "https://eth-rinkeby.alchemyapi.io/v2/your-api-key";
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
