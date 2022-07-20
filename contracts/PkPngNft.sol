@@ -4,6 +4,8 @@ pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
+// NOT COMPLETE / NOT TESTED - Don't bother trying to use this.
+
 contract PkPngNft is ERC721 {
     uint256 private s_tokenCounter;
     string internal s_tokenUri;
