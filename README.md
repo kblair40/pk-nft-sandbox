@@ -16,3 +16,9 @@
     - Click "VIEW KEY" in far right column and copy the url under HTTPS
     - Paste that url in your .env as your RINKEBY_RPC_URL 
     ![](images/readme/alc3.png)
+    - More on Alchemy...
+
+- MetaMask (https://metamask.io/)
+    - Download the Chrome extension
+    - Go through their setup process to create a wallet
+    
